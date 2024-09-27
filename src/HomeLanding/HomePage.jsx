@@ -1,24 +1,18 @@
 import {
     Box,
-    Flex,
     VStack,
     HStack,
     Text,
     Button,
-    IconButton,
     Image,
     Container,
     SimpleGrid,
-    Stack,
-    Input,
-    Img,
 } from '@chakra-ui/react';
-import HomeBg from '../IconFolder/HomeBg.png';
-import baby$book from '../IconFolder/baby$book.png';
 import EventsCard from '../CommonPart/EventsCard';
-import NavBar from '../CommonPart/NavBar';
+import NarBar from '../CommonPart/NavBar';
 import Footer from '../CommonPart/Footer';
 import { variables } from '../App';
+
   
 function HomePage() {
   
@@ -29,7 +23,7 @@ function HomePage() {
       <Box >
        
         {/* NavBar Component*/}
-        <NavBar />
+        <NarBar />
 
         {/* Hero Section */}
         <Box
@@ -39,30 +33,36 @@ function HomePage() {
           bgSize="cover"
           minH="80vh" 
           position="relative"
-          >
+        >
 
           <Container
-          m='0'
-          paddingInline={variables.containerMargin} 
-          height='100vh'
-          display='flex'
-          flexDirection='column'
-          alignItems='center'
-          justifyContent='center'
+            m='0'
+            paddingInline={variables.containerMargin} 
+            height='100vh'
+            display='flex'
+            flexDirection='column'
+            alignItems='center'
+            justifyContent='center'
+            
          
           >
-            <Text color={variables.primaryColor2} 
-                  fontStyle={variables.fonts2}    
-                  fontWeight='600' fontSize='17px'
-                  lineHeight='20px'
-                  letterSpacing='5px'
-                  
-            >
-                  
-              Welcome to Sylvester Standard High School      
-              Where potential and creativity thrive, shaping 
-              tomorrow's leaders.
-            </Text>
+            <Box>
+              <Text 
+                       
+                    color={variables.primaryColor2} 
+                    fontStyle={variables.fonts2}  
+                    fontWeight='500' fontSize='30px'
+                    lineHeight='25px'
+                    letterSpacing='1px'
+                    
+              >
+                    
+                Welcome to Sylvester Standard High School      
+                Where potential and creativity thrive, shaping 
+                tomorrow's leaders.
+              </Text>
+            </Box>
+            
                  
 
             <Box w='100%' mt='20px'>
@@ -72,9 +72,6 @@ function HomePage() {
 
         </Box>
             
-                  
-                  
-  
         {/* Milestones Section */}
         <Text
         mt={'10px'}
@@ -87,6 +84,7 @@ function HomePage() {
           Milstones of Success
           
         </Text>
+                  
         <HStack
         display='flex'
         justifyContent='space-between'
@@ -163,7 +161,7 @@ function HomePage() {
           </VStack>
               
         </HStack>
-  
+                  
         {/* Programs Section */}
         <Box
           bgImage="url('src/IconFolder/Baby$book.png')"
@@ -291,17 +289,19 @@ function HomePage() {
           
           </SimpleGrid>
         </Box>
+
+        {/* Footer Section */}
+        <Footer /> 
   
-         {/* Footer */}
-         <Footer/>
-
-        
       </Box>
-
-   
-      
+  
     );
 }
-  
+
 export default HomePage;
-  
+
+        
+
+   
+
+      

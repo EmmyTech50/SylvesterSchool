@@ -1,4 +1,4 @@
-import HomePage from './HomeLanding/HomePage';
+
 
 
   
@@ -15,10 +15,42 @@ import HomePage from './HomeLanding/HomePage';
     fonts2: "roboto",
     fonts3: "lato",
   };
+
+  
+  export  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
  
 
-function App() { 
-  return (   <HomePage />  )
-}
 
-export default App
