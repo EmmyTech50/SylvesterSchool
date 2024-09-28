@@ -1,9 +1,76 @@
 import React from 'react'
+import { useState } from 'react';
 import { variables } from '../App'
-import { Box, Flex, Grid, Heading, HStack, IconButton, Image, Input, InputGroup, InputLeftElement, Text, VStack } from '@chakra-ui/react'
-import { AddIcon, CalendarIcon, SearchIcon } from '@chakra-ui/icons'
+import { Box, Flex, Grid, Heading, HStack, IconButton, Image, Input, InputGroup, InputLeftElement, SimpleGrid, Text, VStack } from '@chakra-ui/react'
+import { AddIcon, SearchIcon } from '@chakra-ui/icons'
 
+
+
+
+// Month names
+const months = [
+    'January', 'February', 'March', 'April', 'May', 'June', 
+    'July', 'August', 'September', 'October', 'November', 'December'
+  ];
+  
+  // Helper to get days in a month
+  const getDaysInMonth = (month, year) => new Date(year, month + 1, 0).getDate();
+  
+  const Calendar = () => {
+    const [selectedDate, setSelectedDate] = useState(new Date()); // Manage selected date
+    const [currentMonth, setCurrentMonth] = useState(selectedDate.getMonth());
+    const [currentYear, setCurrentYear] = useState(selectedDate.getFullYear());
+  
+    // Highlighted dates (example data)
+    const highlightedDates = {
+      green: [4, 25],
+      yellow: [18, 19, 27],
+      darkGray: [16],
+    };
+  
+    // Function to get color class for a date
+    const getDayColor = (day) => {
+      if (highlightedDates.green.includes(day)) {
+        return 'green.500';
+      } else if (highlightedDates.yellow.includes(day)) {
+        return 'yellow.400';
+      } else if (highlightedDates.darkGray.includes(day)) {
+        return 'gray.500';
+      }
+      return 'transparent';
+    };
+  
+    // Handle month navigation
+    const handlePrevMonth = () => {
+      if (currentMonth === 0) {
+        setCurrentMonth(11);
+        setCurrentYear((prev) => prev - 1);
+      } else {
+        setCurrentMonth((prev) => prev - 1);
+      }
+    };
+  
+    const handleNextMonth = () => {
+      if (currentMonth === 11) {
+        setCurrentMonth(0);
+        setCurrentYear((prev) => prev + 1);
+      } else {
+        setCurrentMonth((prev) => prev + 1);
+      }
+    };
+  
+    // Handle date click
+    const handleDateClick = (day) => {
+      const newDate = new Date(currentYear, currentMonth, day);
+      setSelectedDate(newDate);
+      alert(`Selected Date: ${newDate.toDateString()}`);
+    };
+  
+    const daysInMonth = getDaysInMonth(currentMonth, currentYear);
+    const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  
 function DashBoardHome() {
+
   return (
     <Box bg={variables.primaryColor2} overflowY="auto" maxH="100vh">
 
@@ -138,14 +205,43 @@ function DashBoardHome() {
 
                 {/* Calendar Section */}
                 <Box bg="white" p={4} rounded="lg" boxShadow="md" w='25%' >
-                    <Text fontSize="lg" fontWeight="bold" mb={3}>
-                    September 2024
-                    </Text>
-                    <VStack>
-                    <CalendarIcon boxSize={8} />
-                    {/* Add real calendar logic here */}
-                    <Text mt={3}>Calendar Widget</Text>
-                    </VStack>
+                <VStack spacing={6} w="25%">
+      <Heading as="h2" size="lg" textAlign="center">
+        {months[currentMonth]} {currentYear}
+      </Heading>
+
+      {/* Month Navigation */}
+      <Flex justifyContent="space-between" w="100%">
+        <Button onClick={handlePrevMonth}>&lt; Previous</Button>
+        <Button onClick={handleNextMonth}>Next &gt;</Button>
+      </Flex>
+
+      {/* Calendar Days */}
+      <Flex wrap="wrap" justify="center" w="100%">
+        {daysOfWeek.map((day, index) => (
+          <Box key={index} p={2} textAlign="center" w="14%" fontWeight="bold">
+            {day}
+          </Box>
+        ))}
+
+        {Array.from({ length: daysInMonth }, (_, i) => i + 1).map((day) => (
+          <Box
+            key={day}
+            bg={getDayColor(day)}
+            color={highlightedDates[day] ? 'white' : 'black'}
+            p={3}
+            m={1}
+            borderRadius="md"
+            textAlign="center"
+            cursor="pointer"
+            onClick={() => handleDateClick(day)}
+            w="14%" // Set width to 14% to account for 7 columns
+          >
+            {day}
+          </Box>
+        ))}
+      </Flex>
+    </VStack>
                 </Box>
 
                

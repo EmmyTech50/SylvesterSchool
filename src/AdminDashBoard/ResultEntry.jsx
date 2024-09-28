@@ -4,8 +4,82 @@ import { useState } from 'react';
 import SideBar from './leftSide/SideBar';
 import { variables } from '../App';
 
+// imports for the bar charts
+import { Bar } from 'react-chartjs-2';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
+
+// Register ChartJS components
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
 
+const data = {
+    labels: ['2019', '2020', '2021', '2022'],
+    datasets: [
+      {
+        label: 'Excellent',
+        data: [5000, 10000, 9000, 7000],
+        backgroundColor: 'rgba(72, 207, 173, 0.8)', // Green
+        borderColor: 'rgba(72, 207, 173, 1)',
+        borderWidth: 1,
+      },
+      {
+        label: 'Good',
+        data: [4000, 6000, 8000, 6000],
+        backgroundColor: 'rgba(255, 193, 7, 0.8)', // Yellow
+        borderColor: 'rgba(255, 193, 7, 1)',
+        borderWidth: 1,
+      },
+      {
+        label: 'Poor',
+        data: [2000, 3000, 4000, 3000],
+        backgroundColor: 'rgba(231, 76, 60, 0.8)', // Red
+        borderColor: 'rgba(231, 76, 60, 1)',
+        borderWidth: 1,
+      },
+    ],
+  };
+  
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',
+      },
+      title: {
+        display: true,
+        text: 'Cumulative performance of Student per season',
+      },
+    },
+    scales: {
+      x: {
+        stacked: true,
+      },
+      y: {
+        stacked: true,
+        beginAtZero: true,
+        ticks: {
+          callback: function (value) {
+            return value > 1000 ? `${value / 1000}K` : value;
+          },
+        },
+      },
+    },
+  };
 
 function ResultEntry() {
 
@@ -107,12 +181,12 @@ function ResultEntry() {
             </Flex>
 
             {/* Chart Section */}
-            <Box bg="white" borderRadius="lg" p="4" boxShadow="sm" mx={5}>
-            <Text fontSize="lg" fontWeight="bold" mb="2">Cumulative performance of Students per season</Text>
+            <Box bg="white" borderRadius="lg" p="4" boxShadow="sm" mx={5} h='100vh'>
+            <Text fontSize="lg" fontWeight="bold" mb="4">Cumulative performance of Students per season</Text>
 
             {/* Placeholder for Chart */}
-            <Box p="4" height="200px" border="1px solid" borderColor="gray.200" borderRadius="md">
-                <Text textAlign="center">[Bar Chart Placeholder]</Text>
+            <Box p="4" height="85vh" border="1px solid" borderColor="gray.200" borderRadius="md">
+                <Text textAlign="center"> <Bar data={data} options={options} /> </Text>
             </Box>
             </Box>
 
