@@ -22,41 +22,23 @@ const AboutPage = () => {
         >
 
             <Container
-            m='0'
-            paddingInline={variables.containerMargin} 
-            height='100vh'
-            display='flex'
-            flexDirection='column'
-            alignItems='center'
-            justifyContent='center'
-         
+                m='0'
+                paddingInline={variables.containerMargin} 
+                height='100vh'
+                display='flex'
+                flexDirection='column'
+                alignItems='center'
+                justifyContent='center'
+                color='#ffff'
+                fontSize='50px'
+            
             >
-                <Box w='100%'>
-                    <Heading 
-                        as='h6'   
-                        color={variables.primaryColor2} 
-                        fontStyle={variables.fonts2} 
-                        w='100%'  
-                        fontWeight='500' fontSize='20px'
-                        lineHeight='25px'
-                        letterSpacing='1px'
-                            
-                    >
-                            
-                        Welcome to Sylvester Standard High School      
-                        Where potential and creativity thrive, shaping 
-                        tomorrow's leaders.
-                    </Heading>
-                </Box>
-            
+                <Text> A Chronicle of Our Journey </Text>
+                <Text> Honoring the Past, Shaping the Future </Text>
             </Container>
-                 
-            
-
-
+                
         </Box>
-            
-
+                
         {/*   Our Story */}
         <Box bg={variables.primaryColor1} color="#ffff" p={8} h='70vh'>
             <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}
@@ -73,18 +55,14 @@ const AboutPage = () => {
                 h='65vh' 
                 position='relative'
                 right='-450px'
-                ></Box>
-
-               
-                
-
-                
+                >
+                    
+                </Box>
 
             </SimpleGrid>
 
 
         </Box>
-
 
         {/*   Our Dedcation */}
         <Box bg="#ffff"  p={8} h='70vh'>
@@ -113,7 +91,7 @@ const AboutPage = () => {
             
             
         </Box>
-
+               
         {/* Why Choose Us Section */}
         <Box bg={variables.primaryColor2} p={8} h='50vh'>
             <Heading 
@@ -241,15 +219,27 @@ const AboutPage = () => {
                 </Box>
             </Flex>
         </Box>
-           
                     
         {/* Footer Section */}
         <Footer /> 
     </Box>
-  );
+                
+    );
 };
-
+          
 export default AboutPage;
+                      
+
+                
+
+                 
+
+
+            
+
+
+
+           
   
 
           
