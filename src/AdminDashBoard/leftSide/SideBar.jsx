@@ -6,7 +6,7 @@ import { FaChalkboardTeacher, FaMoneyCheckAlt, FaUserGraduate } from 'react-icon
 
 function SideBar() {
   return (
-    <Box bg="blue.900" color="white" p={4}>
+    <Box bg="#001D3D" color="white" p={4}>
         <VStack spacing={5}>
             <Avatar size="lg" name="User Name" src="https://bit.ly/ryan-florence" />
             <Text fontSize="lg" fontWeight="bold">Dashboard</Text>
@@ -43,6 +43,13 @@ function SideBar() {
                 <HStack spacing={3}>
                 <FaMoneyCheckAlt />
                 <Text>Tokens and Pin</Text>
+                </HStack>
+            </Link>
+
+            <Link to="/admin/login">
+                <HStack spacing={3}>
+                <FaMoneyCheckAlt />
+                <Text>Log-Out</Text>
                 </HStack>
             </Link>
             </VStack>

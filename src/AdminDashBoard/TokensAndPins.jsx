@@ -1,5 +1,5 @@
-import { Badge, Box, Button, Grid, Heading, HStack, Stat, StatLabel, StatNumber, Tab, Table, TabList, Tabs, Tbody, Td, Text, Th, Thead, Tr } from '@chakra-ui/react';
-import React from 'react';
+import { Badge, Box, Button, Grid, Heading, useDisclosure, HStack, Image, Stat, StatLabel, StatNumber, Tab, Table, TabList, Tabs, Tbody, Td, Text, Th, Thead, Tr, VStack, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, FormControl, FormLabel, Select, ModalFooter, ModalCloseButton, Input } from '@chakra-ui/react';
+import React, {useState} from 'react';
 import { MdAdd } from 'react-icons/md';
 import { variables } from '../App';
 
@@ -36,23 +36,50 @@ const TransactionRow = ({ transaction, tokens, date, status }) => (
     <Td size="sm" fontWeight="500">{tokens}</Td>
     <Td size="sm" fontWeight="500">{date}</Td>
     <Td>
-      <Badge colorScheme={status === "Successful" ? "green" : "orange"}>
-        {status}
-      </Badge>
-    </Td>
-  </Tr>
+        {status === 'Successful' ? (
+          <>
+            <HStack>
+              <Text>Successful</Text>
+              <Image src='../src/IconFolder/ready.png'/>
+            </HStack>
+          </>
+        ) : (
+              <>
+                <HStack>
+                  <Text>Pending</Text>
+                  <Image src='../src/IconFolder/pendng.png'/>
+                </HStack>
+              </>
+        )}
+  </Td>
+</Tr>
 );
+        
 
 function TokensAndPins() {
+
+  // Get Tokens Modal Defining:
+  const { isOpen, onOpen, onClose } = useDisclosure(); 
+  const [tokenInput, setTokenInput] = useState(20000);
+  const tokenPriceRate = 0.875; // Price per token
+
+   // Calculate the price based on the entered token amount
+   const calculatePrice = (tokenAmount) => {
+    return (tokenAmount * tokenPriceRate).toLocaleString(undefined, {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
+  };
+
   return (
-    
+    <>
     <Box bg={variables.primaryColor2} overflowY="auto" maxH="100vh" p={5}>
       {/* Header */}
-       <HStack justifyContent="space-between" mb={5} borderRadius="md" mx={5}>
+      <HStack justifyContent="space-between" mb={5} borderRadius="md" mx={5}>
         <Heading size="lg" fontWeight="bold" color="#001D3D">
           Tokens and Pin
         </Heading>
-        <Button leftIcon={<MdAdd />} bg="#001D3D" color="white" fontSize="md" fontWeight="bold">
+        <Button onClick={onOpen} leftIcon={<MdAdd />} bg="#001D3D" color="white" fontSize="md" fontWeight="bold">
           Get Tokens
         </Button>
       </HStack>
@@ -66,9 +93,6 @@ function TokensAndPins() {
         <TabList>
           <Tab _selected={{ color: "#001D3D", borderBottom: "2px solid #001D3D" }} fontWeight="bold">
             Tokens history
-          </Tab>
-          <Tab _selected={{ color: "#001D3D", borderBottom: "2px solid #001D3D" }} fontWeight="bold">
-            Pins
           </Tab>
         </TabList>
       </Tabs>
@@ -86,6 +110,43 @@ function TokensAndPins() {
         <TransactionTable />
       </Box>
     </Box>
+
+    {/* Make Form Teacher Modal */}
+    <Modal isOpen={isOpen} onClose={onClose} size="lg">
+      <ModalOverlay bgColor='#D9D9D9'/>
+      <ModalContent bgColor='#F5FCEC'>
+        <ModalHeader color="#001D3D" fontSize="xl" fontWeight="bold" align='center'>Get Token</ModalHeader>
+        <ModalCloseButton />
+        <ModalBody>
+            <VStack spacing={6}>
+                  {/* Token Input Field */}
+                  <Input
+                    value={tokenInput}
+                    onChange={(e) => setTokenInput(e.target.value)}
+                    textAlign="center"
+                    fontSize="lg"
+                    w='70%'
+                    placeholder="Enter token amount"
+                    type="number"
+                    borderColor="5px solid #001D3D" 
+                    _focus={{ borderColor: ' #001D3D', boxShadow: ' #001D3D' }}
+                  />
+              {/* Dynamic Price Output */}
+              <Text fontSize="2xl" fontWeight="bold" color="gray.700">
+                ${calculatePrice(tokenInput)} {/* Display calculated price */}
+              </Text>
+            </VStack>
+        </ModalBody>
+        
+        {/* Footer Buttons */}
+        <ModalFooter>
+          <Button outlineColor="#001D3D" color='#001D3D' mr={3} onClick={onClose}>
+            Continue...
+          </Button>
+        </ModalFooter>
+      </ModalContent>
+    </Modal>
+    </>
   );
 }
 

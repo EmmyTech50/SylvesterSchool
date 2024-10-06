@@ -1,177 +1,200 @@
 import {
   Box,
-  Grid,
-  HStack,
   Heading,
   Input,
-  Thead,
-  Tr,
-  Th,
-  Tbody,
-  Td,
-  Badge,
-  Avatar,
-  SimpleGrid,
+  Flex,
+  InputGroup,
+  InputLeftElement,
+  Grid,
+  HStack,
+  Menu,
+  MenuButton,
+  Button,
+  MenuList,
+  MenuItem,
   VStack,
-  Table,
+  Badge,
   Text,
+  Img
 } from '@chakra-ui/react';
-import { MdSearch } from 'react-icons/md';
-import { Line } from 'react-chartjs-2';
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-} from 'chart.js';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
+import { SearchIcon, AddIcon, ChevronDownIcon } from '@chakra-ui/icons';
+import { variables } from '../App';
+import SearchTeachers from '../components/SearchTeachers';
+import EventTable from '../components/EventTable';
+import Calendar from '../components/Calender';
+import WriteNote from '../components/WriteNote';
+import Image from '../IconFolder/Arrow.png';
+import { Link } from 'react-router-dom';
 
-// Register Chart.js components
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend
-);
 
 // Mock data for the chart
-const chartData = {
-  labels: ['1WK', '2WK', '3WK', '4WK', '5WK', '7WK'],
-  datasets: [
-    {
-      label: 'Attendance',
-      data: [4000, 3000, 2000, 3500, 2800, 3200],
-      borderColor: '#3182CE',
-      backgroundColor: 'rgba(49, 130, 206, 0.1)',
-    },
-  ],
-};
+const data = [
+  { name: "1WK", uv: 4000 },
+  { name: "2WK", uv: 3000 },
+  { name: "3WK", uv: 2000 },
+  { name: "4WK", uv: 2780 },
+  { name: "5WK", uv: 1890 },
+  { name: "6WK", uv: 2390 },
+  { name: "7WK", uv: 3490 },
+];
 
-// Table Component for Events
-const EventsTable = () => (
-  <Table variant="simple" size="md">
-    <Thead>
-      <Tr>
-        <Th>Name</Th>
-        <Th>Date</Th>
-      </Tr>
-    </Thead>
-    <Tbody>
-      <Tr>
-        <Td>Home Decor Range</Td>
-        <Td>13 Mar 2024</Td>
-      </Tr>
-      <Tr>
-        <Td>Disney Princess Pink Bag</Td>
-        <Td>13 Mar 2024</Td>
-      </Tr>
-      <Tr>
-        <Td>Bathroom Essentials</Td>
-        <Td>13 Mar 2024</Td>
-      </Tr>
-    </Tbody>
-  </Table>
-);
+// Sample event data
+const events = [
+  { id: 1, name: 'Home Decor Range', date: '13 Mar 2024', color: 'green.500' },
+  { id: 2, name: 'Disney Princess Pink Bag 15', date: '13 Mar 2024', color: 'black' },
+  { id: 3, name: 'Bathroom Essentials', date: '13 Mar 2024', color: 'yellow.500' },
+  { id: 4, name: 'Apple Smartwatches', date: '13 Mar 2024', color: 'gray.400' }
+];
+
 
 // Main App Component
 function TeachersHome() {
   return (
-    <Box bg="gray.100" minH="100vh" p={5}>
-      {/* Header */}
-      <HStack justifyContent="space-between" mb={6}>
-        <Heading size="lg">Dashboard</Heading>
-        <HStack spacing={2}>
-          <MdSearch size={24} />
-          <Input placeholder="Search..." variant="outline" w="300px" />
-        </HStack>
-      </HStack>
+    <Box bg={variables.primaryColor2} overflowY="auto" maxH="100vh">
+      {/* NavBar */}
+      <Flex
+      bg="#ffff"
+      h='15vh'
+      display='flex'
+      justifyContent="space-between"  
+      alignItems="center" 
+      mb="10px"
+      >
+      <Heading fontSize='xl' fontWeight='bold' mx={5}>
+          Dashboard
+      </Heading>
 
-      {/* Grid for the Layout */}
-      <Grid templateColumns="repeat(2, 1fr)" gap={6}>
-        {/* Weekly Attendance */}
-        <Box bg="white" p={5} borderRadius="md" boxShadow="sm">
-          <Heading size="md" mb={4}>
-            Weekly Student Attendance
-          </Heading>
-          <Line data={chartData} />
-        </Box>
+      {/* Search Input */}
+      <InputGroup maxW="500px" mx={5}>
+          <InputLeftElement pointerEvents="none">
+              <SearchIcon color="#001D3D" />
+          </InputLeftElement>
+          <Input
+              type="text"
+              placeholder="Search Teachers, Events and more..."
+              bg={variables.primaryColor2}
+              fontSize='md' 
+              fontWeight='bold'
+              variant="filled"
+              borderColor="gray.300"
+              focusBorderColor="purple.500"
+          />
+      </InputGroup>
+      </Flex>
 
-        {/* Events */}
-        <Box bg="white" p={5} borderRadius="md" boxShadow="sm">
-          <Heading size="md" mb={4}>
-            Events
-          </Heading>
-          <EventsTable />
-        </Box>
+      <Box
+      bg="white"
+      p={5}
+      borderRadius="md"
+      boxShadow="md"
+      maxW="container.lg"
+      mx="auto"
+      mt={5}
+      >
+        {/* Header and Dropdown */}
+        <Flex justify="space-between" align="center" mb={2} borderBottom='1px' borderBottomColor='#001D3D'>
+          <VStack>
+            <Text fontSize="md" fontWeight="bold">
+              Weekly Student Attendance
+            </Text>
 
-        {/* Calendar and Write Section */}
-        <Box bg="white" p={5} borderRadius="md" boxShadow="sm">
-          <Heading size="md" mb={4}>
-            Calendar
-          </Heading>
-          <Text>September 2021</Text>
-          {/* Add a simple calendar component here */}
-        </Box>
-
-        <Box bg="white" p={5} borderRadius="md" boxShadow="sm">
-          <Heading size="md" mb={4}>
-            Write Something To Remember
-          </Heading>
-          {/* Add a text editor or a simple text box */}
-          <Text>Add your notes here...</Text>
-        </Box>
-
-        {/* Teacher List */}
-        <Box bg="white" p={5} borderRadius="md" boxShadow="sm">
-          <Heading size="md" mb={4}>
-            Teachers
-          </Heading>
-          <VStack align="stretch" spacing={4}>
-            <HStack>
-              <Avatar name="Jane Cooper" />
-              <Box>
-                <Text>Jane Cooper</Text>
-                <Text fontSize="sm" color="gray.500">
-                  Senior Teacher
-                </Text>
-              </Box>
-            </HStack>
-            <HStack>
-              <Avatar name="John Bishop" />
-              <Box>
-                <Text>John Bishop</Text>
-                <Text fontSize="sm" color="gray.500">
-                  Mathematics Teacher
-                </Text>
-              </Box>
-            </HStack>
+            {/* Dropdown for selecting student */}
+            <Menu>
+              <MenuButton fontSize="lg" fontWeight="bold" as={Button} rightIcon={<ChevronDownIcon />} variant='#ffff'>
+                Eze ChukwuEmeka David
+              </MenuButton>
+              <MenuList>
+                <Input
+                  placeholder="Search for student"
+                  width="90%"
+                  boxShadow="sm"
+                  bg="gray.100"
+                  fontWeight="bold"
+                  mx={3}
+                />
+                <MenuItem  fontWeight="bold">Jovan Mark</MenuItem>
+                <MenuItem  fontWeight="bold">Matthew Jones</MenuItem>
+                <MenuItem  fontWeight="bold">Stones Crooks</MenuItem>
+                <MenuItem  fontWeight="bold">John Bishop</MenuItem>
+              </MenuList>
+            </Menu>
           </VStack>
+                
+          {/* Attendance Percentage */}
+          <VStack align="flex-end">
+            <HStack fontWeight="bold" fontSize="lg">
+              <Text>
+                80%
+              </Text>
+              <Img src={'../src/IconFolder/Arrow.png'}/>
+            </HStack>
+            <Text fontWeight="md">
+              EXCELLENT
+            </Text>
+          </VStack>
+        </Flex>
+              
+                
+
+
+        
+
+        {/* Search Input and Button */}
+        <Flex justify="space-between" mt={4} align="center">
+          {/* Chart */}
+          <ResponsiveContainer width="70%" height={300}>
+            <LineChart data={data}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name" />
+              <YAxis />
+              <Tooltip />
+              <Line type="monotone" dataKey="uv" stroke="#8884d8" strokeWidth={2} />
+            </LineChart>
+          </ResponsiveContainer>
+
+          {/* Mark Attendance Button */}
+          <Button
+            colorScheme="gray"
+            bg="#001D3D"
+            color="white"
+            px={8}
+            boxShadow="md"
+          ><Link to="/attendance">
+            Mark Attendance
+          </Link></Button>
+        </Flex>
+      </Box>
+          
+      {/* Events & SearchTeachers */}
+      <Flex mx={9} mt={10} gap={5} h='51vh'>
+        {/* Events */}
+        <Box bg="white" p={4} rounded="lg" boxShadow="md" w="60%">
+          <EventTable icon={AddIcon}/>
         </Box>
 
-        {/* Subject List */}
-        <Box bg="white" p={5} borderRadius="md" boxShadow="sm">
-          <Heading size="md" mb={4}>
-            My Subjects
-          </Heading>
-          <SimpleGrid columns={2} spacing={4}>
-            <Badge colorScheme="blue" p={3} borderRadius="md">
-              English Language
-            </Badge>
-            <Badge colorScheme="yellow" p={3} borderRadius="md">
-              Further Maths
-            </Badge>
-            <Badge colorScheme="red" p={3} borderRadius="md">
-              Mathematics
-            </Badge>
-          </SimpleGrid>
+        {/* SearchTeachers */}
+        <Box bg="white" p={4} rounded="lg" boxShadow="md" w="40%">
+          <SearchTeachers />
         </Box>
-      </Grid>
+      </Flex>
+
+      <Box   mx={9} h='80vh' mb='10px'>
+        <Grid templateColumns="repeat(3, 1fr)" gap={4} mt={10} h='60vh' >
+          <Box bg="white"  rounded="lg" boxShadow="md" > 
+            <Calendar/>
+          </Box>
+          <Box bg="white" rounded="lg" boxShadow="md" >
+            <WriteNote/>
+          </Box>
+          <Box bg="white" rounded="lg" boxShadow="md" >
+          
+          </Box>
+        </Grid>
+      </Box>
+              
+
+      
     </Box>
   );
 }

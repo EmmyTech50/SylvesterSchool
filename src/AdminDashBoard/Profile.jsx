@@ -1,4 +1,4 @@
-import { Box, Grid, GridItem, Text, Avatar, Button, IconButton, Input, Flex, Icon, FormLabel, Stack, VStack, Badge } from '@chakra-ui/react';
+import { Box, Grid, GridItem, Text, Avatar, Button, IconButton, Input, Flex, Icon, FormLabel, Stack, VStack, Badge} from '@chakra-ui/react';
 import { variables } from '../App';
 import { FaBell, FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from 'react-icons/fa';
 

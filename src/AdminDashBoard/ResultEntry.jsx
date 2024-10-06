@@ -1,8 +1,10 @@
 import React from 'react'
-import { Box, Flex, Text, Button, Heading, Grid, GridItem, Select, Stack, Badge, Image } from '@chakra-ui/react';
+import { Box, Flex, Text, Button, Heading, Grid, GridItem, Select, Stack, Badge, Image, useDisclosure, Collapse, Table, Thead, Tr, Th, Tbody, Icon, Td, VStack, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter } from '@chakra-ui/react';
 import { useState } from 'react';
 import SideBar from './leftSide/SideBar';
 import { variables } from '../App';
+import { CheckCircleIcon } from '@chakra-ui/icons';
+import { Spinner } from '@chakra-ui/react';
 
 // imports for the bar charts
 import { Bar } from 'react-chartjs-2';
@@ -81,9 +83,38 @@ const data = {
     },
   };
 
+  // Expanded Data
+  const ExpandedData = [
+    {
+      level: 'A',
+      results: ['Ready', 'Pending', 'Ready', 'Pending', 'Ready', 'Pending'],
+    },
+    {
+      level: 'B',
+      results: ['Ready', 'Pending', 'Ready', 'Pending', 'Ready', 'Pending'],
+    },
+    {
+      level: 'C',
+      results: ['Ready', 'Pending', 'Ready', 'Pending', 'Ready', 'Pending'],
+    },
+    {
+      level: 'D',
+      results: ['Ready', 'Pending', 'Ready', 'Pending', 'Ready', 'Pending'],
+    },
+  ];
+
 function ResultEntry() {
 
-  const [isExpanded, setIsExpanded] = useState(false);
+  // handles open portal
+  const { isOpen: isOpenPortal, onOpen: onOpenPortal, onClose: onClosePortal } = useDisclosure();
+
+  // State to manage expansion
+  const { isOpen, onToggle } = useDisclosure();
+
+  // Get the first two rows and the rest separately
+  const firstTwoRows = ExpandedData.slice(0, 2); // Always visible
+  const expandableRows = ExpandedData.slice(2);  // Expandable
+
   return (
     <Flex direction="column" align="center" overflowY="auto" maxH="100vh" bg={variables.primaryColor2} p="6">
       
@@ -109,29 +140,90 @@ function ResultEntry() {
                     </Badge>
                 </Stack>
 
-                {/* Grid Container for the Class Items */}
-                <Box
-                    mt={5}
-                    display="flex"
-                    justifyContent="space-between"
-                    alignItems="center"
-                >
-                    <Grid templateColumns="repeat(6, 1fr)" gap="4">
-                    {["JSS 1", "JSS 2", "JSS 3", "SS 1", "SS 2", "SS 3"].map((className, idx) => (
-                        <GridItem key={className} textAlign="center">
-                        <Text fontSize="md" fontWeight="bold" mb={5}>{className}</Text>
-                        {idx % 2 === 0 ? <Image src="src/IconFolder/ready.png" boxSize="6" /> : <Image src="src/IconFolder/pendng.png" boxSize="6" />}
-                        <Text mt={5} fontSize="md" fontWeight="bold" color={idx % 2 === 0 ? "green.500" : "orange.500"}>
-                            {idx % 2 === 0 ? "Ready" : "Pending"}
-                        </Text>
-                        </GridItem>
+                {/* Result with Expandable button */}
+                <Box>
+                    
+                <Table variant="simple">
+                  <Thead>
+                    <Tr>
+                      <Th>JSS 1</Th>
+                      <Th>JSS 2</Th>
+                      <Th>JSS 3</Th>
+                      <Th>SS 1</Th>
+                      <Th>SS 2</Th>
+                      <Th>SS 3</Th>
+                    </Tr>
+                  </Thead>
+                  <Tbody>
+                    {/* Render the first two rows that are always visible */}
+                    {firstTwoRows.map((row, rowIndex) => (
+                      <Tr key={rowIndex}>
+                        {row.results.map((status, colIndex) => (
+                          <Td key={colIndex} textAlign="center">
+                            {status === 'Ready' ? (
+                              <>
+                                <VStack>
+                                  <Image src='../src/IconFolder/ready.png'/>
+                                  <Text>Ready</Text>
+                                </VStack>
+                              </>
+                            ) : (
+                              <>
+                                <VStack>
+                                  <Image src='../src/IconFolder/pendng.png'/>
+                                  <Text>Pending</Text>
+                                </VStack>
+                              </>
+                            )}
+                          </Td>
+                        ))}
+                        <Td>
+                          <Text>{row.level}</Text>
+                        </Td>
+                      </Tr>
                     ))}
-                    </Grid>
-
+                  </Tbody>
+                </Table>
+                
+                {/* Collapsible content with the remaining rows */}
+                <Collapse in={isOpen} animateOpacity>
+                  <Table variant="simple">
+                    <Tbody>
+                      {expandableRows.map((row, rowIndex) => (
+                        <Tr key={rowIndex}>
+                          {row.results.map((status, colIndex) => (
+                            <Td key={colIndex} textAlign="center">
+                              {status === 'Ready' ? (
+                                <>
+                                  <VStack>
+                                    <Image src='../src/IconFolder/ready.png'/>
+                                    <Text>Ready</Text>
+                                  </VStack>
+                                </>
+                              ) : (
+                                <>
+                                  <VStack>
+                                    <Image src='../src/IconFolder/pendng.png'/>
+                                    <Text>Pending</Text>
+                                  </VStack>
+                                </>
+                              )}
+                            </Td>
+                          ))}
+                          <Td>
+                            <Text>{row.level}</Text>
+                          </Td>
+                        </Tr>
+                      ))}
+                    </Tbody>
+                  </Table>
+                </Collapse>
                     {/* Expand Button */}
-                    <Button mb="5" color='#ffff' bgColor='#001D3D' fontSize='md' fontWeight='bold' onClick={() => setIsExpanded(!isExpanded)}>
-                    {isExpanded ? "Collapse" : "Expand"}
-                    </Button>
+                    <Flex justify='flex-end'>
+                      <Button onClick={onToggle} mb={4} mt={4} color='#ffff' bgColor='#001D3D' fontSize='md' fontWeight='bold'>
+                      {isOpen ? 'Collapse' : 'Expand'}
+                      </Button>
+                    </Flex>
                 </Box>
             </Box>
 
@@ -154,7 +246,7 @@ function ResultEntry() {
                         <Text fontSize="lg" fontWeight="bold">Open Result Portal</Text>
                         <Text color={variables.primaryColor1} fontSize="sm" fontWeight="bold">Results Are Still Pending.</Text>
                     </Box>
-                    <Button mt="2" color="#ffff" bgColor="#001D3D" fontSize="md" fontWeight="bold">Open Result Portal</Button>
+                    <Button onClick={onOpenPortal} mt="2" color="#ffff" bgColor="#001D3D" fontSize="md" fontWeight="bold">Open Result Portal</Button>
                 </Box>
 
                 <Box
@@ -191,6 +283,33 @@ function ResultEntry() {
             </Box>
 
         </Box>
+
+
+        {/* Open Portal Modal */}
+        <Modal isOpen={isOpenPortal} onClose={onClosePortal} size="lg">
+          <ModalOverlay bgColor='#D9D9D9'/>
+          <ModalContent bgColor='#F5FCEC'>
+            <ModalHeader color="#001D3D" fontSize="xl" fontWeight="bold" align='center'>Open Portal</ModalHeader>
+            <ModalCloseButton />
+            <ModalBody>
+                <VStack>
+                  <Text fontSize='md' fontWeight='bold' color={variables.primaryColor1}>Results are still pending, some student </Text>    
+                  <Text fontSize='md' fontWeight='bold' color={variables.primaryColor1}>will not be able to see their result,</Text>    
+                  <Text fontSize='md' fontWeight='bold' color={variables.primaryColor1}>do you wish to proceed</Text>    
+                  
+                </VStack>
+            </ModalBody>
+            
+            {/* Footer Buttons */}
+            <ModalFooter>
+              <Flex justify='center' align='center'>
+                <Button outlineColor="#001D3D" color='#001D3D'  onClick={onClosePortal}>
+                  Open
+                </Button>
+              </Flex>
+            </ModalFooter>
+          </ModalContent>
+        </Modal>
     </Flex>
   )
 }

@@ -1,5 +1,5 @@
 import { Grid } from '@chakra-ui/react';
-import Sidebar from '../TeachersDashBoard/TeachersSideBar/SideBar';
+import Sidebar from './TeachersSideBar/SideBar';
 import { Outlet } from 'react-router-dom';
 
 function DashBoardBar() {
