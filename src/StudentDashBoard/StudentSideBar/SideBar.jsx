@@ -26,7 +26,7 @@ function SideBar() {
                 </HStack>
             </Link>
 
-            <Link to="/student/login">
+            <Link to="/frget">
                 <HStack spacing={3}>
                 <CalendarIcon />
                 <Text>LogOut</Text>

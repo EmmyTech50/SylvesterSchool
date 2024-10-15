@@ -16,19 +16,19 @@ function NavBar() {
     >
       {/* Logo Section */}
       <Box>
-        <Image src='src/IconFolder/schoolLogo.png' mt='2' mb='2' />
+        <Image src='src/IconFolder/schoolLogo.png' mt='2' mb='2' w={{ base: '120px', md: '150px' }} />
       </Box>
 
       {/* Links & Search Section for Larger Screens */}
       <Box display={{ base: 'none', md: 'block' }}>
-        <HStack spacing={3} mb='2' mt='2' color='#ffff'>
+        <HStack spacing={6} mb='2' mt='2' color='#ffff'>
           <Link to="/">Home</Link>
           <Link to="/admission">Admission</Link>
           <Link to="/academics">Academics</Link>
           <Link to="/about">About</Link>
           <Link to="/contact">Contact</Link>
         </HStack>
-        <Input placeholder="Search" bgColor="white" mb='2' />
+        <Input placeholder="Search" bgColor="white" maxW="200px" />
       </Box>
 
       {/* Menu Icon for Smaller Screens */}
@@ -51,7 +51,7 @@ function NavBar() {
       </Box>
 
       {/* Search Input for Smaller Screens */}
-      <Box display={{ base: 'block', md: 'none' }} mt={2}>
+      <Box display={{ base: 'block', md: 'none' }} mt={2} w="full">
         <Input placeholder="Search" bgColor="white" />
       </Box>
     </Flex>

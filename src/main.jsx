@@ -35,7 +35,7 @@ import StudentResult from '../src/StudentDashBoard/StudentResult';
 import StudentLogin from '../src/StudentDashBoard/StudentLogin';
 
 // forgetPassword
-// import ForgetPassword from '../';
+import ForgetPassword from '../src/components/ForgetPassword';
 
 // Other pages here:
 
@@ -68,6 +68,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <Route path="/student/studres" element={< StudentResult/>} />
           </Route>
           <Route path="/student/login" element={< StudentLogin />} />
+          <Route path="/frget" element={<  ForgetPassword />} />
           
             
 
