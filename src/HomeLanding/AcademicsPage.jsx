@@ -20,6 +20,50 @@ const Data = [
     }
   },
   {
+    title: "Lower Primary School",
+    subtitle: "Year 1 to 3 (Grade 1 to 3)\nAges 5 to 7",
+    subjects: {
+      "Core Academic Subjects": ["Numeracy", "Quantitative Reasoning", "Grammar", "Handwriting", "Comprehension & Poetry"],
+      "Science and Technology": ["Basic Science", "Basic Science and Tech", "Computer Studies"],
+      "Social and Cultural Studies": ["French", "Social Studies", "Language", "Christian Religious Knowledge"],
+      "Creative and Performing Arts": ["Music", "Fine Art", "Diction"],
+      "Home and Practical Skills": ["Home Economics"]
+    }
+  },
+  {
+    title: "Lower Primary School",
+    subtitle: "Year 1 to 3 (Grade 1 to 3)\nAges 5 to 7",
+    subjects: {
+      "Core Academic Subjects": ["Numeracy", "Quantitative Reasoning", "Grammar", "Handwriting", "Comprehension & Poetry"],
+      "Science and Technology": ["Basic Science", "Basic Science and Tech", "Computer Studies"],
+      "Social and Cultural Studies": ["French", "Social Studies", "Language", "Christian Religious Knowledge"],
+      "Creative and Performing Arts": ["Music", "Fine Art", "Diction"],
+      "Home and Practical Skills": ["Home Economics"]
+    }
+  },
+  {
+    title: "Lower Primary School",
+    subtitle: "Year 1 to 3 (Grade 1 to 3)\nAges 5 to 7",
+    subjects: {
+      "Core Academic Subjects": ["Numeracy", "Quantitative Reasoning", "Grammar", "Handwriting", "Comprehension & Poetry"],
+      "Science and Technology": ["Basic Science", "Basic Science and Tech", "Computer Studies"],
+      "Social and Cultural Studies": ["French", "Social Studies", "Language", "Christian Religious Knowledge"],
+      "Creative and Performing Arts": ["Music", "Fine Art", "Diction"],
+      "Home and Practical Skills": ["Home Economics"]
+    }
+  },
+  {
+    title: "Lower Primary School",
+    subtitle: "Year 1 to 3 (Grade 1 to 3)\nAges 5 to 7",
+    subjects: {
+      "Core Academic Subjects": ["Numeracy", "Quantitative Reasoning", "Grammar", "Handwriting", "Comprehension & Poetry"],
+      "Science and Technology": ["Basic Science", "Basic Science and Tech", "Computer Studies"],
+      "Social and Cultural Studies": ["French", "Social Studies", "Language", "Christian Religious Knowledge"],
+      "Creative and Performing Arts": ["Music", "Fine Art", "Diction"],
+      "Home and Practical Skills": ["Home Economics"]
+    }
+  },
+  {
     title: "Upper Primary School",
     subtitle: "Year 4 to 6 (Grade 4 to 6)\nAges 8 to 11",
     subjects: {
@@ -40,7 +84,7 @@ function AcademicsPage() {
   };
 
   const nextSlide = () => {
-    setCurrentIndex((currentIndex === Data.length - 1) ? 0 : currentIndex + 1);
+    setCurrentIndex((currentIndex === ( Data.length - 1) ) ? 0 : currentIndex + 1);
   };
 
   return (
@@ -68,7 +112,7 @@ function AcademicsPage() {
         </Box>
       </Box>
 
-      <Box maxW="1200px" mx="auto" position="relative">
+      <Box  mx="auto" position="relative">
         <Flex justifyContent="center" alignItems="center" position="relative">
           <IconButton
             aria-label="Previous"
@@ -89,12 +133,12 @@ function AcademicsPage() {
             <Flex
               transform={`translateX(-${currentIndex * 100}%)`}
               transition="transform 1s ease-in-out"
-              width={`${Data.length * 100}%`}
+              width={`${100}%`}
             >
               {Data.map((item, index) => (
                 <Box
                   key={index}
-                  minW="90%"
+                  w="99%"
                   p={4}
                   display="flex"
                   flexDirection="column"
@@ -113,7 +157,7 @@ function AcademicsPage() {
                     borderRadius="lg"
                     p={6}
                     h="70vh"
-                    width="700px"
+                    width="820px"
                     textAlign="center"
                     boxShadow="md"
                     bg="white"
