@@ -1,23 +1,8 @@
-import { 
-    Box, 
-    Flex, 
-    Heading, 
-    Text, 
-    Button, 
-    VStack, 
-    HStack, 
-    Image, 
-    Container, 
-    SimpleGrid, 
-    Grid, 
-    GridItem, 
-    Card, 
-    CardBody 
-  } from '@chakra-ui/react';
-  import NavBar from '../CommonPart/NavBar';
-  import Footer from '../CommonPart/Footer';
-  import { variables } from '../App';
-  import { ArrowForwardIcon, PhoneIcon } from '@chakra-ui/icons';
+import { Box, Heading, Text, Button, Container, SimpleGrid, Grid, GridItem, Card, CardBody } from '@chakra-ui/react';
+import NavBar from '../CommonPart/NavBar';
+import Footer from '../CommonPart/Footer';
+import { variables } from '../App';
+import { ArrowForwardIcon, PhoneIcon } from '@chakra-ui/icons';
   
   const AdmissionPage = () => {
     return (

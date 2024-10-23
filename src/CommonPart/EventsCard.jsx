@@ -14,13 +14,13 @@ function EventsCard({ evtTitle, evtBgImage, evtDetailText }) {
         borderTopRadius='20px' 
       />
       <Text fontSize={{ base: 'lg', md: 'xl' }} fontWeight="bold" mt={4}>{evtTitle}</Text>
-      <Text fontSize={{ base: 'md', md: 'xl' }} fontWeight="bold" mt={7}>{evtDetailText}</Text>
+      <Text fontSize={{ base: 'md', md: 'lg' }} fontWeight="bold" mt={7} mx={2}>{evtDetailText}</Text>
       <Button 
         borderRadius='25px' 
         color='#ffff' 
         bgColor='#842D19' 
-        w={{ base: '200px', md: '310px' }}  // Adjust button width for mobile
-        mt={10}
+        w={{ base: 'auto', md: '310px' }}  // Adjust button width for mobile
+        mt={50}
         mb={10}
       >
         VIEW MORE

@@ -4,11 +4,11 @@ import { ChakraProvider } from '@chakra-ui/react'
 import ReactDOM from 'react-dom/client'
 
 // HomeLanding
-import AboutPage from './HomeLanding/AboutPage'
-import HomePage from './HomeLanding/HomePage'
-import AcademicsPage from './HomeLanding/AcademicsPage'
-import AdmissionPage from './HomeLanding/AdmissionPage'
-import ContactPage from './HomeLanding/ContactPage'
+import AboutPage from './HomeLanding/AboutPage';
+import HomePage from './HomeLanding/HomePage';
+import AcademicsPage from './HomeLanding/AcademicsPage';
+import AdmissionPage from './HomeLanding/AdmissionPage';
+import ContactPage from './HomeLanding/ContactPage';
 
 // Admin Dashboard
 import Dashboard from '../src/AdminDashBoard/Dashboard';
@@ -52,7 +52,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Router>
         
         <Routes>
-          {/* other pages */}
+        
           {/* attendance */}
           <Route path="/attendance" element={< Attendance />} />
 

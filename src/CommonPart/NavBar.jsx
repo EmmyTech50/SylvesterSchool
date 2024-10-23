@@ -20,7 +20,7 @@ function NavBar() {
       </Box>
 
       {/* Links & Search Section for Larger Screens */}
-      <Box display={{ base: 'none', md: 'block' }}>
+      <Box display={{ base: 'none', md: 'block' }} mb='2' mt='2'>
         <HStack spacing={6} mb='2' mt='2' color='#ffff'>
           <Link to="/">Home</Link>
           <Link to="/admission">Admission</Link>
@@ -28,7 +28,7 @@ function NavBar() {
           <Link to="/about">About</Link>
           <Link to="/contact">Contact</Link>
         </HStack>
-        <Input placeholder="Search" bgColor="white" maxW="200px" />
+        <Input placeholder="Search" bgColor="white" maxW="100%" />
       </Box>
 
       {/* Menu Icon for Smaller Screens */}
@@ -51,7 +51,7 @@ function NavBar() {
       </Box>
 
       {/* Search Input for Smaller Screens */}
-      <Box display={{ base: 'block', md: 'none' }} mt={2} w="full">
+      <Box display={{ base: 'block', md: 'none' }} mb='2' mt={2} w="full">
         <Input placeholder="Search" bgColor="white" />
       </Box>
     </Flex>

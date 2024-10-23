@@ -105,102 +105,135 @@ function AcademicsPage() {
           alignItems="center"
           justifyContent="center"
           color="#fff"
-          fontSize="50px"
+          fontSize={{ base: '30px', md: '50px' }}
         >
-          <Text>Ignite Your Curiosity and Achieve Excellence</Text>
-          <Text>Sylvester Standard High Academics</Text>
+          <Text >Ignite Your Curiosity and Achieve Excellence</Text>
+          <Text >Sylvester Standard High Academics</Text>
         </Box>
       </Box>
 
       <Box  mx="auto" position="relative">
-        <Flex justifyContent="center" alignItems="center" position="relative">
-          <IconButton
-            aria-label="Previous"
-            icon={<ArrowBackIcon color={variables.primaryColor1} />}
-            onClick={prevSlide}
-            bg={variables.primaryColor2}
-            zIndex="1"
-          />
+        <Flex justifyContent="center" alignItems="center" position="relative" w="100%">
+        {/* Previous Button */}
+        <IconButton
+          aria-label="Previous"
+          icon={<ArrowBackIcon color={variables.primaryColor1} />}
+          onClick={prevSlide}
+          bg={variables.primaryColor2}
+          zIndex="1"
+          size={{ base: 'sm', md: 'md' }} // Adjust button size for mobile
+        />
 
+        <Flex
+          overflow="hidden"
+          width="100%"
+          position="relative"
+          minH="50vh"
+          alignItems="center"
+          justifyContent="center"
+        >
+          {/* Carousel Wrapper */}
           <Flex
-            overflow="hidden"
+            transform={`translateX(-${currentIndex * 100}%)`}
+            transition="transform 1s ease-in-out"
             width="100%"
-            position="relative"
-            minH="50vh"
-            alignItems="center"
-            justifyContent="center"
           >
-            <Flex
-              transform={`translateX(-${currentIndex * 100}%)`}
-              transition="transform 1s ease-in-out"
-              width={`${100}%`}
-            >
-              {Data.map((item, index) => (
-                <Box
-                  key={index}
-                  w="99%"
-                  p={4}
-                  display="flex"
-                  flexDirection="column"
-                  alignItems="center"
-                  justifyContent="center"
+            {Data.map((item, index) => (
+              <Box
+                key={index}
+                w="100%" // Make each slide full-width on mobile
+                p={{ base: 2, md: 4 }} // Adjust padding for mobile
+                display="flex"
+                flexDirection="column"
+                alignItems="center"
+                justifyContent="center"
+              >
+                {/* Title */}
+                <Text
+                  fontSize={{ base: 'lg', md: '2xl' }} // Responsive text size
+                  fontWeight="bold"
+                  color={variables.primaryColor1}
+                  textAlign="center"
                 >
-                  <Text fontSize="2xl" fontWeight="bold" color={variables.primaryColor1}>
-                    {item.title}
-                  </Text>
-                  <Text fontSize="lg" fontWeight="bold" color={variables.primaryColor1}>
-                    {item.subtitle}
+                  {item.title}
+                </Text>
+
+                {/* Subtitle */}
+                <Text
+                  fontSize={{ base: 'md', md: 'lg' }} // Responsive text size
+                  fontWeight="bold"
+                  color={variables.primaryColor1}
+                  textAlign="center"
+                  mb={4} // Add margin for spacing
+                >
+                  {item.subtitle}
+                </Text>
+
+                {/* Card Content */}
+                <Box
+                  borderWidth="1px"
+                  borderRadius="lg"
+                  p={{ base: 4, md: 6 }} // Responsive padding
+                  h={{ base: 'auto', md: '70vh' }} // Dynamic height for mobile
+                  width={{ base: '100%', md: '820px' }} // Responsive width
+                  textAlign="center"
+                  boxShadow="md"
+                  bg="white"
+                >
+                  <Text fontSize={{ base: 'xl', md: '2xl' }} mb={4} fontWeight="bold" color={variables.primaryColor1}>
+                    Subjects
                   </Text>
 
-                  <Box
-                    borderWidth="1px"
-                    borderRadius="lg"
-                    p={6}
-                    h="70vh"
-                    width="820px"
-                    textAlign="center"
-                    boxShadow="md"
-                    bg="white"
+                  {/* Subjects Grid */}
+                  <Grid
+                    templateColumns={{ base: 'repeat(2, 1fr)', md: 'repeat(5, 1fr)' }} // Adjust grid columns for mobile
+                    gap={4} // Smaller gap for mobile
                   >
-                    <Text fontSize="2xl" mb={4} fontWeight="bold" color={variables.primaryColor1}>
-                      Subjects
-                    </Text>
-                    <Grid templateColumns="repeat(5, 1fr)" gap={6}>
-                      {Object.entries(item.subjects).map(([category, subjects], i) => (
-                        <Box key={i} p={2}>
-                          <Text fontSize="lg" fontWeight="bold" color={variables.primaryColor1} mb={2}>
-                            {category}
-                          </Text>
-                          <Stack spacing={2}>
-                            {subjects.map((subject, j) => (
-                              <Text key={j} fontSize="sm" fontWeight="bold">
-                                {subject}
-                              </Text>
-                            ))}
-                          </Stack>
-                        </Box>
-                      ))}
-                    </Grid>
+                    {Object.entries(item.subjects).map(([category, subjects], i) => (
+                      <Box key={i} p={2}>
+                        <Text fontSize={{ base: 'sm', md: 'lg' }} fontWeight="bold" color={variables.primaryColor1} mb={2}>
+                          {category}
+                        </Text>
+                        <Stack spacing={2}>
+                          {subjects.map((subject, j) => (
+                            <Text key={j} fontSize={{ base: 'xs', md: 'sm' }} fontWeight="bold">
+                              {subject}
+                            </Text>
+                          ))}
+                        </Stack>
+                      </Box>
+                    ))}
+                  </Grid>
 
-                    <Flex justify="flex-end">
-                      <Button mt={2} display="block" bg="#fff" size="lg" outlineColor={variables.primaryColor1}>
-                        Enroll Now
-                      </Button>
-                    </Flex>
-                  </Box>
+                  {/* Enroll Button */}
+                  <Flex justify="center" mt={4}>
+                    <Button
+                      mt={2}
+                      display="block"
+                      bg="#fff"
+                      size={{ base: 'md', md: 'lg' }} // Responsive button size
+                      outlineColor={variables.primaryColor1}
+                    >
+                      Enroll Now
+                    </Button>
+                  </Flex>
                 </Box>
-              ))}
-            </Flex>
+              </Box>
+            ))}
           </Flex>
-
-          <IconButton
-            aria-label="Next"
-            icon={<ArrowForwardIcon color={variables.primaryColor1} />}
-            bg={variables.primaryColor2}
-            onClick={nextSlide}
-            zIndex="1"
-          />
         </Flex>
+
+        {/* Next Button */}
+        <IconButton
+          aria-label="Next"
+          icon={<ArrowForwardIcon color={variables.primaryColor1} />}
+          bg={variables.primaryColor2}
+          onClick={nextSlide}
+          zIndex="1"
+          size={{ base: 'sm', md: 'md' }} // Adjust button size for mobile
+        />
+      </Flex>
+
       </Box>
 
       <Footer />

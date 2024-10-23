@@ -1,13 +1,4 @@
-import {
-  Box,
-  VStack,
-  HStack,
-  Text,
-  Button,
-  Image,
-  Container,
-  SimpleGrid,
-} from '@chakra-ui/react';
+import { Box, VStack, HStack, Text, Button, Image, Container, SimpleGrid } from '@chakra-ui/react';
 import EventsCard from '../CommonPart/EventsCard';
 import NavBar from '../CommonPart/NavBar';
 import Footer from '../CommonPart/Footer';
@@ -76,7 +67,8 @@ function HomePage() {
         justifyContent="space-between"
         alignItems="center"
         py="10px"
-        flexDirection={{ base: 'column', md: 'row' }} 
+        flexDirection={{ base: 'column', md: 'row' }}
+        paddingInline={variables.containerMargin} 
       >
         <VStack textAlign="center" mb={{ base: '20px', md: '0' }}>
           <Box
@@ -164,8 +156,8 @@ function HomePage() {
         bgImage="url('src/IconFolder/Baby$book.png')"
         bgPosition="center"
         bgRepeat="no-repeat"
-        bgSize="cover"
-        minH="80vh"
+        bgSize="cover" // Ensure the image covers the entire background
+        minH="100vh" // Set to 100vh to cover the full viewport height
         position="relative"
         py={{ base: 10, md: 20 }}
       >
@@ -204,15 +196,17 @@ function HomePage() {
             >
               <Image src="src/IconFolder/greentree.png" sizes="sm" />
             </Box>
-            <Text fontSize="xl" fontWeight="bold" color={variables.primaryColor1}>
+            <Text fontSize={{ base: 'md', md: 'xl' }} fontWeight="bold" color={variables.primaryColor1}>
               Primary Education Program
             </Text>
-            <Text fontWeight="500" fontSize="15px">
+            <Text fontWeight="500" fontSize={{ base: 'sm', md: 'lg' }}>
               Where Every Child's Journey Begins.
             </Text>
-            <Button color={variables.primaryColor1} outlineColor={variables.primaryColor1} mt={4}>
-              Enroll Now
-            </Button>
+            <Box w="100%" mt="4px" textAlign="center">
+              <Button mt={4} color={variables.primaryColor1} outlineColor={variables.primaryColor1} w={{ base: '105%', md: '50%' }}>
+                Enroll Now
+              </Button>
+            </Box>
           </Box>
 
           <Box
@@ -234,15 +228,17 @@ function HomePage() {
             >
               <Image src="src/IconFolder/bookstack.png" sizes="sm" />
             </Box>
-            <Text fontSize="xl" fontWeight="bold" color={variables.primaryColor1}>
+            <Text fontSize={{ base: 'md', md: 'xl' }} fontWeight="bold" color={variables.primaryColor1}>
               Junior Secondary Program
             </Text>
-            <Text fontWeight="500" fontSize="15px">
+            <Text fontWeight="500" fontSize={{ base: 'sm', md: 'lg' }}>
               Building Foundations for Success.
             </Text>
-            <Button color={variables.primaryColor1} outlineColor={variables.primaryColor1} mt={4}>
-              Enroll Now
-            </Button>
+            <Box w="100%" mt="4px" textAlign="center">
+              <Button mt={4} color={variables.primaryColor1} outlineColor={variables.primaryColor1} w={{ base: '105%', md: '50%' }}>
+                Enroll Now
+              </Button>
+            </Box>
           </Box>
 
           <Box
@@ -264,15 +260,17 @@ function HomePage() {
             >
               <Image src="src/IconFolder/cap.png" sizes="sm" />
             </Box>
-            <Text fontSize="xl" fontWeight="bold" color={variables.primaryColor1}>
+            <Text fontSize={{ base: 'md', md: 'xl' }} fontWeight="bold" color={variables.primaryColor1}>
               Secondary School Program
             </Text>
-            <Text fontWeight="500" fontSize="15px">
+            <Text fontWeight="500" fontSize={{ base: 'sm', md: 'lg' }}>
               Empowering Future Leaders.
             </Text>
-            <Button color={variables.primaryColor1} outlineColor={variables.primaryColor1} mt={4}>
-              Enroll Now
-            </Button>
+            <Box w="100%" textAlign="center">
+              <Button mt={4} color={variables.primaryColor1} outlineColor={variables.primaryColor1} w={{ base: '105%', md: '50%' }}>
+                Enroll Now
+              </Button>
+            </Box>
           </Box>
         </SimpleGrid>
       </Box>
