@@ -12,7 +12,7 @@ function HomePage() {
 
       {/* Hero Section */}
       <Box
-        bgImage="url('src/IconFolder/HomeBg.png')"
+        bgImage="url('src/assets/HomeBg.png')"
         bgPosition="center"
         bgRepeat="no-repeat"
         bgSize="cover"
@@ -80,7 +80,7 @@ function HomePage() {
             bg={variables.primaryColor2}
             color="white"
           >
-            <Image src="src/IconFolder/Book open.png" sizes="sm" />
+            <Image src="src/assets/Book open.png" sizes="sm" />
           </Box>
           <Text color={variables.primaryColor1} fontWeight="700" fontSize="20px">
             Students
@@ -100,7 +100,7 @@ function HomePage() {
             bg={variables.primaryColor2}
             color="white"
           >
-            <Image src="src/IconFolder/people.png" sizes="sm" />
+            <Image src="src/assets/people.png" sizes="sm" />
           </Box>
           <Text color={variables.primaryColor1} fontWeight="700" fontSize="20px">
             Teachers
@@ -120,7 +120,7 @@ function HomePage() {
             bg={variables.primaryColor2}
             color="white"
           >
-            <Image src="src/IconFolder/Book.png" />
+            <Image src="src/assets/Book.png" />
           </Box>
           <Text color={variables.primaryColor1} fontWeight="700" fontSize="20px">
             Courses

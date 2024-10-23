@@ -112,7 +112,7 @@ const DashBoardHome = () => {
               bg={variables.primaryColor2}
               bgColor="pink"
             >
-              <Image src='../src/IconFolder/People.png' fontSize='sm' w='10px' h='10px' />
+              <Image src='src/assets/people.png' fontSize='sm' w='10px' h='10px' />
             </Box>
             <Text fontSize="xl" fontWeight="bold">100K</Text>
             <Text fontSize='md' fontWeight='bold'>Total Employees</Text>
