@@ -16,7 +16,7 @@ function Footer() {
       >
         {/* School Logo */}
         <VStack align="start" spacing={4} mb={{ base: 8, md: 0 }}>
-          <Img src='src/IconFolder/schoolLogo.png' />
+          <Img src='public/schoolLogo.png' />
         </VStack>
 
         {/* Quick Links Section */}

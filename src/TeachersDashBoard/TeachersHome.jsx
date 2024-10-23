@@ -127,7 +127,7 @@ function TeachersHome() {
               <Text>
                 80%
               </Text>
-              <Img src={'../src/IconFolder/Arrow.png'}/>
+              <Img src={'public/Arrow.png'}/>
             </HStack>
             <Text fontWeight="md">
               EXCELLENT

@@ -81,7 +81,7 @@ import { Link } from "react-router-dom";
             {/* Right Side: Image */}
             <Box w="50%" display={{ base: "none", md: "block" }}>
                 <Image
-                src="../src/IconFolder/StaffLogin.png"
+                src="public/StaffLogin.png"
                 alt="Teacher on PC"
                 objectFit="cover"
                 h="full"

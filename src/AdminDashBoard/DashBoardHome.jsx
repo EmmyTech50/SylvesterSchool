@@ -112,7 +112,7 @@ const DashBoardHome = () => {
               bg={variables.primaryColor2}
               bgColor="pink"
             >
-              <Image src='src/assets/people.png' fontSize='sm' w='10px' h='10px' />
+              <Image src='public/people.png' fontSize='sm' w='10px' h='10px' />
             </Box>
             <Text fontSize="xl" fontWeight="bold">100K</Text>
             <Text fontSize='md' fontWeight='bold'>Total Employees</Text>
@@ -129,7 +129,7 @@ const DashBoardHome = () => {
               bg={variables.primaryColor2}
               bgColor="orange.200"
             >
-              <Image src='../src/IconFolder/Book open.png' fontSize='sm' w='10px' h='10px' />
+              <Image src='public/Book open.png' fontSize='sm' w='10px' h='10px' />
             </Box>
             <Text fontSize="xl" fontWeight="bold">1M</Text>
             <Text fontSize='md' fontWeight='bold'>Total Students</Text>
@@ -145,7 +145,7 @@ const DashBoardHome = () => {
               bg={variables.primaryColor2}
               bgColor="green"
             >
-              <Image src='../src/IconFolder/Clock.png' fontSize='sm' w='10px' h='10px' />
+              <Image src='public/Clock.png' fontSize='sm' w='10px' h='10px' />
             </Box>
             <Text fontSize="xl" fontWeight="bold">5</Text>
             <Text fontSize='md' fontWeight='bold'>Upcoming Events</Text>
@@ -162,7 +162,7 @@ const DashBoardHome = () => {
               bg={variables.primaryColor2}
               bgColor="purple"
             >
-              <Image src='../src/IconFolder/Naira.png' fontSize='sm' w='10px' h='10px' />
+              <Image src='public/Naira.png' fontSize='sm' w='10px' h='10px' />
             </Box>
             <Text fontSize="xl" fontWeight="bold">20M</Text>
             <Text fontSize='md' fontWeight='bold'>Revenue</Text>

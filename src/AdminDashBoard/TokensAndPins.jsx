@@ -40,14 +40,14 @@ const TransactionRow = ({ transaction, tokens, date, status }) => (
           <>
             <HStack>
               <Text>Successful</Text>
-              <Image src='../src/IconFolder/ready.png'/>
+              <Image src='public/ready.png'/>
             </HStack>
           </>
         ) : (
               <>
                 <HStack>
                   <Text>Pending</Text>
-                  <Image src='../src/IconFolder/pendng.png'/>
+                  <Image src='public/pendng.png'/>
                 </HStack>
               </>
         )}

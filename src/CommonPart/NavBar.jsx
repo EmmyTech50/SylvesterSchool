@@ -16,7 +16,7 @@ function NavBar() {
     >
       {/* Logo Section */}
       <Box>
-        <Image src='src/IconFolder/schoolLogo.png' mt='2' mb='2' w={{ base: '120px', md: '150px' }} />
+        <Image src='public/schoolLogo.png' mt='2' mb='2' w={{ base: '120px', md: '150px' }} />
       </Box>
 
       {/* Links & Search Section for Larger Screens */}

@@ -8,9 +8,7 @@ import {
   Text,
   Select,
   Flex,
-  Icon,
   Alert,
-  AlertIcon,
   AlertTitle,
 } from "@chakra-ui/react";
 import { variables } from "../App";

@@ -13,7 +13,7 @@ import { ArrowForwardIcon, PhoneIcon } from '@chakra-ui/icons';
   
         {/* Online Registration Section */}
         <Box
-          bgImage="url('src/IconFolder/overlayedBook.png')"
+          bgImage="url('public/overlayedBook.png')"
           bgPosition="center"
           bgRepeat="no-repeat"
           bgSize="cover"

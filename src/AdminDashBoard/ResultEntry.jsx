@@ -163,14 +163,14 @@ function ResultEntry() {
                             {status === 'Ready' ? (
                               <>
                                 <VStack>
-                                  <Image src='../src/IconFolder/ready.png'/>
+                                  <Image src='public/ready.png'/>
                                   <Text>Ready</Text>
                                 </VStack>
                               </>
                             ) : (
                               <>
                                 <VStack>
-                                  <Image src='../src/IconFolder/pendng.png'/>
+                                  <Image src='public/pendng.png'/>
                                   <Text>Pending</Text>
                                 </VStack>
                               </>
@@ -196,14 +196,14 @@ function ResultEntry() {
                               {status === 'Ready' ? (
                                 <>
                                   <VStack>
-                                    <Image src='../src/IconFolder/ready.png'/>
+                                    <Image src='public/ready.png'/>
                                     <Text>Ready</Text>
                                   </VStack>
                                 </>
                               ) : (
                                 <>
                                   <VStack>
-                                    <Image src='../src/IconFolder/pendng.png'/>
+                                    <Image src='public/pendng.png'/>
                                     <Text>Pending</Text>
                                   </VStack>
                                 </>

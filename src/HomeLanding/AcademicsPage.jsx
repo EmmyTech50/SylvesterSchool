@@ -91,7 +91,7 @@ function AcademicsPage() {
     <Box bg={variables.primaryColor2}>
       <NavBar />
       <Box
-        bgImage="url('src/IconFolder/baby$book.png')"
+        bgImage="url('public/baby$book.png')"
         bgPosition="center"
         bgRepeat="no-repeat"
         bgSize="cover"

@@ -11,7 +11,7 @@ import NavBar from '../CommonPart/NavBar';
   
         {/* Our Story Section */}
         <Box
-          bgImage="url('src/IconFolder/schoolsite.png')"
+          bgImage="url('public/schoolsite.png')"
           bgPosition="center"
           bgRepeat="no-repeat"
           bgSize="cover"
@@ -83,7 +83,7 @@ import NavBar from '../CommonPart/NavBar';
               mt={{ base: 4, md: 0 }} // Add margin on mobile to create spacing between the heading and card
             >
               <CardBody>
-                <Image src="src/IconFolder/people.png" />
+                <Image src="public/people.png" />
                 <Stack mt="6" spacing="3">
                   <Text textAlign="center"> {/* Center the text on all screens */}
                     This sofa is perfect for modern tropical spaces, baroque inspired spaces, earthy toned spaces, and for people who love a chic design with a sprinkle of vintage design.
@@ -143,7 +143,7 @@ import NavBar from '../CommonPart/NavBar';
             {['boywriting', 'youngmanwriting', 'teamsOnPc'].map((image, i) => (
               <Box
                 key={i}
-                bgImage={`src/IconFolder/${image}.png`}
+                bgImage={`public/${image}.png`}
                 borderTopRadius="20px"
                 h="50vh"
                 bgPosition="center"
@@ -159,7 +159,7 @@ import NavBar from '../CommonPart/NavBar';
           <Flex display="flex" flexDirection="row" alignItems="center" justifyContent="space-between" py={2}>
             {['Oracle-Logo-PNG5 (1)', 'Cambridge', 'unicef', 'Vector'].map((logo, i) => (
               <Box key={i}>
-                <Image src={`src/IconFolder/${logo}.png`} />
+                <Image src={`public/${logo}.png`} />
               </Box>
             ))}
           </Flex>
