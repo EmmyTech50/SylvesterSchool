@@ -24,7 +24,6 @@ import SearchTeachers from '../components/SearchTeachers';
 import EventTable from '../components/EventTable';
 import Calendar from '../components/Calender';
 import WriteNote from '../components/WriteNote';
-import Image from '../IconFolder/Arrow.png';
 import { Link } from 'react-router-dom';
 
 
