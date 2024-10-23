@@ -12,7 +12,7 @@ function HomePage() {
 
       {/* Hero Section */}
       <Box
-        bgImage="url('src/assets/HomeBg.png')"
+        bgImage="url('public/HomeBg.png')"
         bgPosition="center"
         bgRepeat="no-repeat"
         bgSize="cover"
@@ -80,7 +80,7 @@ function HomePage() {
             bg={variables.primaryColor2}
             color="white"
           >
-            <Image src="src/assets/Book open.png" sizes="sm" />
+            <Image src="public/Book open.png" sizes="sm" />
           </Box>
           <Text color={variables.primaryColor1} fontWeight="700" fontSize="20px">
             Students
@@ -100,7 +100,7 @@ function HomePage() {
             bg={variables.primaryColor2}
             color="white"
           >
-            <Image src="src/assets/people.png" sizes="sm" />
+            <Image src="public/people.png" sizes="sm" />
           </Box>
           <Text color={variables.primaryColor1} fontWeight="700" fontSize="20px">
             Teachers
@@ -120,7 +120,7 @@ function HomePage() {
             bg={variables.primaryColor2}
             color="white"
           >
-            <Image src="src/assets/Book.png" />
+            <Image src="public/Book.png" />
           </Box>
           <Text color={variables.primaryColor1} fontWeight="700" fontSize="20px">
             Courses
@@ -140,7 +140,7 @@ function HomePage() {
             bg={variables.primaryColor2}
             color="white"
           >
-            <Image src="src/IconFolder/star.png" />
+            <Image src="public/Star.png" />
           </Box>
           <Text color={variables.primaryColor1} fontWeight="700" fontSize="20px">
             Rating
@@ -153,7 +153,7 @@ function HomePage() {
 
       {/* Programs Section */}
       <Box
-        bgImage="url('src/IconFolder/Baby$book.png')"
+        bgImage="url('public/baby$book.png')"
         bgPosition="center"
         bgRepeat="no-repeat"
         bgSize="cover" // Ensure the image covers the entire background
@@ -194,7 +194,7 @@ function HomePage() {
               color="white"
               boxShadow="lg"
             >
-              <Image src="src/IconFolder/greentree.png" sizes="sm" />
+              <Image src="public/greentree.png" sizes="sm" />
             </Box>
             <Text fontSize={{ base: 'md', md: 'xl' }} fontWeight="bold" color={variables.primaryColor1}>
               Primary Education Program
@@ -226,7 +226,7 @@ function HomePage() {
               color="white"
               boxShadow="lg"
             >
-              <Image src="src/IconFolder/bookstack.png" sizes="sm" />
+              <Image src="public/bookstack.png" sizes="sm" />
             </Box>
             <Text fontSize={{ base: 'md', md: 'xl' }} fontWeight="bold" color={variables.primaryColor1}>
               Junior Secondary Program
@@ -258,7 +258,7 @@ function HomePage() {
               color="white"
               boxShadow="lg"
             >
-              <Image src="src/IconFolder/cap.png" sizes="sm" />
+              <Image src="public/cap.png" sizes="sm" />
             </Box>
             <Text fontSize={{ base: 'md', md: 'xl' }} fontWeight="bold" color={variables.primaryColor1}>
               Secondary School Program
@@ -295,17 +295,17 @@ function HomePage() {
         <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
           <EventsCard
             evtTitle="Cultural Day"
-            evtBgImage="src/IconFolder/culturalWear.png"
+            evtBgImage="public/culturalWear.png"
             evtDetailText="Nigeria's rich cultural diversity where students can showcase traditional attire"
           />
           <EventsCard
             evtTitle="Football Match"
-            evtBgImage="src/IconFolder/football.png"
+            evtBgImage="public/football.png"
             evtDetailText="A football match for students to showcase their sportsmanship and teamwork"
           />
           <EventsCard
             evtTitle="Health Day"
-            evtBgImage="src/IconFolder/DoctorWear.png"
+            evtBgImage="public/DoctorWear.png"
             evtDetailText="A day to focus on health awareness and medical career exploration"
           />
         </SimpleGrid>
