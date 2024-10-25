@@ -3,6 +3,7 @@ import { variables } from '../App'
 import { Box, Flex, HStack, Img, VStack, Text, Link } from '@chakra-ui/react'
 import { FaUserGraduate } from 'react-icons/fa'
 import { Link as RouterLink } from 'react-router-dom'
+import schoolLogo from '../assets/schoolLogo.png';
 
 function Footer() {
   return (
@@ -16,7 +17,7 @@ function Footer() {
       >
         {/* School Logo */}
         <VStack align="start" spacing={4} mb={{ base: 8, md: 0 }}>
-          <Img src='public/schoolLogo.png' />
+          <Img src={schoolLogo} />
         </VStack>
 
         {/* Quick Links Section */}

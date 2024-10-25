@@ -3,6 +3,18 @@ import EventsCard from '../CommonPart/EventsCard';
 import NavBar from '../CommonPart/NavBar';
 import Footer from '../CommonPart/Footer';
 import { variables } from '../App';
+import HomeBg from '../assets/HomeBg.png';
+import BookOpen from '../assets/Book open.png';
+import people from '../assets/people.png';
+import Book from '../assets/Book.png';
+import Star from '../assets/Star.png';
+import baby$book from '../assets/baby$book.png';
+import greentree from '../assets/greentree.png';
+import bookstack from '../assets/bookstack.png';
+import cap from '../assets/cap.png';
+import culturalWear from '../assets/culturalWear.png';
+import football from '../assets/football.png';
+import DoctorWear from '../assets/DoctorWear.png';
 
 function HomePage() {
   return (
@@ -12,7 +24,7 @@ function HomePage() {
 
       {/* Hero Section */}
       <Box
-        bgImage="url('public/HomeBg.png')"
+        bgImage={HomeBg}
         bgPosition="center"
         bgRepeat="no-repeat"
         bgSize="cover"
@@ -80,7 +92,7 @@ function HomePage() {
             bg={variables.primaryColor2}
             color="white"
           >
-            <Image src="public/Book open.png" sizes="sm" />
+            <Image src={BookOpen} sizes="sm" />
           </Box>
           <Text color={variables.primaryColor1} fontWeight="700" fontSize="20px">
             Students
@@ -100,7 +112,7 @@ function HomePage() {
             bg={variables.primaryColor2}
             color="white"
           >
-            <Image src="public/people.png" sizes="sm" />
+            <Image src={people} sizes="sm" />
           </Box>
           <Text color={variables.primaryColor1} fontWeight="700" fontSize="20px">
             Teachers
@@ -120,7 +132,7 @@ function HomePage() {
             bg={variables.primaryColor2}
             color="white"
           >
-            <Image src="public/Book.png" />
+            <Image src={Book} />
           </Box>
           <Text color={variables.primaryColor1} fontWeight="700" fontSize="20px">
             Courses
@@ -140,7 +152,7 @@ function HomePage() {
             bg={variables.primaryColor2}
             color="white"
           >
-            <Image src="public/Star.png" />
+            <Image src={Star} />
           </Box>
           <Text color={variables.primaryColor1} fontWeight="700" fontSize="20px">
             Rating
@@ -153,7 +165,7 @@ function HomePage() {
 
       {/* Programs Section */}
       <Box
-        bgImage="url('public/baby$book.png')"
+        bgImage={baby$book}
         bgPosition="center"
         bgRepeat="no-repeat"
         bgSize="cover" // Ensure the image covers the entire background
@@ -194,7 +206,7 @@ function HomePage() {
               color="white"
               boxShadow="lg"
             >
-              <Image src="public/greentree.png" sizes="sm" />
+              <Image src={greentree} sizes="sm" />
             </Box>
             <Text fontSize={{ base: 'md', md: 'xl' }} fontWeight="bold" color={variables.primaryColor1}>
               Primary Education Program
@@ -226,7 +238,7 @@ function HomePage() {
               color="white"
               boxShadow="lg"
             >
-              <Image src="public/bookstack.png" sizes="sm" />
+              <Image src={bookstack} sizes="sm" />
             </Box>
             <Text fontSize={{ base: 'md', md: 'xl' }} fontWeight="bold" color={variables.primaryColor1}>
               Junior Secondary Program
@@ -258,7 +270,7 @@ function HomePage() {
               color="white"
               boxShadow="lg"
             >
-              <Image src="public/cap.png" sizes="sm" />
+              <Image src={cap} sizes="sm" />
             </Box>
             <Text fontSize={{ base: 'md', md: 'xl' }} fontWeight="bold" color={variables.primaryColor1}>
               Secondary School Program
@@ -295,17 +307,17 @@ function HomePage() {
         <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
           <EventsCard
             evtTitle="Cultural Day"
-            evtBgImage="public/culturalWear.png"
+            evtBgImage={culturalWear}
             evtDetailText="Nigeria's rich cultural diversity where students can showcase traditional attire"
           />
           <EventsCard
             evtTitle="Football Match"
-            evtBgImage="public/football.png"
+            evtBgImage={football}
             evtDetailText="A football match for students to showcase their sportsmanship and teamwork"
           />
           <EventsCard
             evtTitle="Health Day"
-            evtBgImage="public/DoctorWear.png"
+            evtBgImage={DoctorWear}
             evtDetailText="A day to focus on health awareness and medical career exploration"
           />
         </SimpleGrid>

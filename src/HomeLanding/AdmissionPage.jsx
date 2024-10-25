@@ -3,6 +3,7 @@ import NavBar from '../CommonPart/NavBar';
 import Footer from '../CommonPart/Footer';
 import { variables } from '../App';
 import { ArrowForwardIcon, PhoneIcon } from '@chakra-ui/icons';
+import overlayedBook from '../assets/overlayedBook.png';
   
   const AdmissionPage = () => {
     return (
@@ -13,7 +14,7 @@ import { ArrowForwardIcon, PhoneIcon } from '@chakra-ui/icons';
   
         {/* Online Registration Section */}
         <Box
-          bgImage="url('public/overlayedBook.png')"
+          bgImage={overlayedBook}
           bgPosition="center"
           bgRepeat="no-repeat"
           bgSize="cover"

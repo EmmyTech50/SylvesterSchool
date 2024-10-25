@@ -15,6 +15,7 @@ import {
 import { useState } from "react";
 import { variables } from "../App";
 import { Link } from "react-router-dom";
+import AdminLogin from "../assets/AdminLogin.png";
   
   function AdminLogin() {
     const [showPassword, setShowPassword] = useState(false);
@@ -81,7 +82,7 @@ import { Link } from "react-router-dom";
             {/* Right Side: Image */}
             <Box w="50%" display={{ base: "none", md: "block" }}>
                 <Image
-                src="public/AdminLogin.png"
+                src={AdminLogin}
                 alt="Books Stack"
                 objectFit="cover"
                 h="full"

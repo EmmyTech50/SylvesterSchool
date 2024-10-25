@@ -6,6 +6,7 @@ import NavBar from '../CommonPart/NavBar';
 import Footer from '../CommonPart/Footer';
 import React, { useState } from "react";
 import { variables } from '../App';
+import baby$book from '../assets/baby$book.png';
 
 const Data = [
   {
@@ -91,7 +92,7 @@ function AcademicsPage() {
     <Box bg={variables.primaryColor2}>
       <NavBar />
       <Box
-        bgImage="url('public/baby$book.png')"
+        bgImage={baby$book}
         bgPosition="center"
         bgRepeat="no-repeat"
         bgSize="cover"

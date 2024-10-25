@@ -25,6 +25,10 @@ import EventTable from '../components/EventTable';
 import SearchTeachers from '../components/SearchTeachers';
 import Calendar from '../components/Calender';
 import { variables } from '../App';
+import people from '../assets/people.png';
+import BookOpen from '../assets/Book open.png';
+import Clock from '../assets/Clock.png';
+import Naira from '../assets/Naira.png';
 
 // Enrollment data
 const enrollmentData = [
@@ -112,7 +116,7 @@ const DashBoardHome = () => {
               bg={variables.primaryColor2}
               bgColor="pink"
             >
-              <Image src='public/people.png' fontSize='sm' w='10px' h='10px' />
+              <Image src={people} fontSize='sm' w='10px' h='10px' />
             </Box>
             <Text fontSize="xl" fontWeight="bold">100K</Text>
             <Text fontSize='md' fontWeight='bold'>Total Employees</Text>
@@ -129,7 +133,7 @@ const DashBoardHome = () => {
               bg={variables.primaryColor2}
               bgColor="orange.200"
             >
-              <Image src='public/Book open.png' fontSize='sm' w='10px' h='10px' />
+              <Image src={BookOpen} fontSize='sm' w='10px' h='10px' />
             </Box>
             <Text fontSize="xl" fontWeight="bold">1M</Text>
             <Text fontSize='md' fontWeight='bold'>Total Students</Text>
@@ -145,7 +149,7 @@ const DashBoardHome = () => {
               bg={variables.primaryColor2}
               bgColor="green"
             >
-              <Image src='public/Clock.png' fontSize='sm' w='10px' h='10px' />
+              <Image src={Clock} fontSize='sm' w='10px' h='10px' />
             </Box>
             <Text fontSize="xl" fontWeight="bold">5</Text>
             <Text fontSize='md' fontWeight='bold'>Upcoming Events</Text>
@@ -162,7 +166,7 @@ const DashBoardHome = () => {
               bg={variables.primaryColor2}
               bgColor="purple"
             >
-              <Image src='public/Naira.png' fontSize='sm' w='10px' h='10px' />
+              <Image src={Naira} fontSize='sm' w='10px' h='10px' />
             </Box>
             <Text fontSize="xl" fontWeight="bold">20M</Text>
             <Text fontSize='md' fontWeight='bold'>Revenue</Text>

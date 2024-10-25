@@ -1,7 +1,9 @@
-import { Badge, Box, Button, Grid, Heading, useDisclosure, HStack, Image, Stat, StatLabel, StatNumber, Tab, Table, TabList, Tabs, Tbody, Td, Text, Th, Thead, Tr, VStack, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, FormControl, FormLabel, Select, ModalFooter, ModalCloseButton, Input } from '@chakra-ui/react';
+import {Box, Button, Heading, useDisclosure, HStack, Image, Stat, StatLabel, StatNumber, Tab, Table, TabList, Tabs, Tbody, Td, Text, Th, Thead, Tr, VStack, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, FormControl, FormLabel, Select, ModalFooter, ModalCloseButton, Input } from '@chakra-ui/react';
 import React, {useState} from 'react';
 import { MdAdd } from 'react-icons/md';
 import { variables } from '../App';
+import ready from '../assets/ready.png';
+import pendng from '../assets/pendng.png';
 
 const StatCard = ({ label, value }) => (
   <Box bg="white" p={5} borderRadius="md" boxShadow="sm" w="100%">
@@ -40,14 +42,14 @@ const TransactionRow = ({ transaction, tokens, date, status }) => (
           <>
             <HStack>
               <Text>Successful</Text>
-              <Image src='public/ready.png'/>
+              <Image src={ready}/>
             </HStack>
           </>
         ) : (
               <>
                 <HStack>
                   <Text>Pending</Text>
-                  <Image src='public/pendng.png'/>
+                  <Image src={pendng}/>
                 </HStack>
               </>
         )}

@@ -1,10 +1,8 @@
 import React from 'react'
-import { Box, Flex, Text, Button, Heading, Grid, GridItem, Select, Stack, Badge, Image, useDisclosure, Collapse, Table, Thead, Tr, Th, Tbody, Icon, Td, VStack, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter } from '@chakra-ui/react';
-import { useState } from 'react';
-import SideBar from './leftSide/SideBar';
+import { Box, Flex, Text, Button, Heading, Select, Stack, Badge, Image, useDisclosure, Collapse, Table, Thead, Tr, Th, Tbody, Td, VStack, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter } from '@chakra-ui/react';
 import { variables } from '../App';
-import { CheckCircleIcon } from '@chakra-ui/icons';
-import { Spinner } from '@chakra-ui/react';
+import ready from '../assets/ready.png';
+import pendng from '../assets/pendng.png';
 
 // imports for the bar charts
 import { Bar } from 'react-chartjs-2';
@@ -163,14 +161,14 @@ function ResultEntry() {
                             {status === 'Ready' ? (
                               <>
                                 <VStack>
-                                  <Image src='public/ready.png'/>
+                                  <Image src={ready}/>
                                   <Text>Ready</Text>
                                 </VStack>
                               </>
                             ) : (
                               <>
                                 <VStack>
-                                  <Image src='public/pendng.png'/>
+                                  <Image src={pendng}/>
                                   <Text>Pending</Text>
                                 </VStack>
                               </>
@@ -196,14 +194,14 @@ function ResultEntry() {
                               {status === 'Ready' ? (
                                 <>
                                   <VStack>
-                                    <Image src='public/ready.png'/>
+                                    <Image src={ready}/>
                                     <Text>Ready</Text>
                                   </VStack>
                                 </>
                               ) : (
                                 <>
                                   <VStack>
-                                    <Image src='public/pendng.png'/>
+                                    <Image src={pendng}/>
                                     <Text>Pending</Text>
                                   </VStack>
                                 </>

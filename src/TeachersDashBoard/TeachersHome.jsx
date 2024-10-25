@@ -1,15 +1,4 @@
-import {
-  Box,
-  Heading,
-  Input,
-  Flex,
-  InputGroup,
-  InputLeftElement,
-  Grid,
-  HStack,
-  Menu,
-  MenuButton,
-  Button,
+import { Box, Heading, Input, Flex, InputGroup, InputLeftElement, Grid, HStack, Menu, MenuButton, Button,
   MenuList,
   MenuItem,
   VStack,
@@ -25,6 +14,7 @@ import EventTable from '../components/EventTable';
 import Calendar from '../components/Calender';
 import WriteNote from '../components/WriteNote';
 import { Link } from 'react-router-dom';
+import Arrow from '../assets/Arrow.png';
 
 
 // Mock data for the chart
@@ -126,7 +116,7 @@ function TeachersHome() {
               <Text>
                 80%
               </Text>
-              <Img src={'public/Arrow.png'}/>
+              <Img src={Arrow}/>
             </HStack>
             <Text fontWeight="md">
               EXCELLENT
